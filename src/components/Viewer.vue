@@ -1,7 +1,13 @@
 <template>
   <div id="viewer">
-    This is the viewer.vue!
     <router-view/>
+    <v-app>
+      <v-flex grid-list-md text-xs-right>
+        <div id="buttonContainer">
+          <v-btn color="success" >>_</v-btn>
+        </div>
+      </v-flex>
+    </v-app>
   </div>
 </template>
 
@@ -11,13 +17,23 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+$variable: 100px;
+
 #viewer {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+
+  // v-app 
+  .application {
+    background: transparent;
+
+    // #buttonContainer {
+      
+    // }
+  }
 }
 </style>
