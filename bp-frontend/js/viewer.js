@@ -13,3 +13,23 @@ or in the "license" file accompanying this file. This file is distributed on an 
   Set Javascript specific to the extension viewer view in this file.
 
 */
+
+// 1. Define route components
+const Foo = { template: '<div>foo</div>' }
+const Bar = { template: '<div>bar</div>' }
+
+// 2. Define routes
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+]
+
+// 3. Create the router instance and pass the routes option
+const router = new VueRouter({
+  routes // short for `routes: routes`
+})
+
+// 4. Create and mount the root instance
+const app = new Vue({
+  router
+}).$mount('#app')

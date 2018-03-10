@@ -20,11 +20,15 @@ or in the "license" file accompanying this file. This file is distributed on an 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/viewer.css">
-    </head>
-    <body>
-        <p>This is the viewer page!</p>
         <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+        <script src="https://unpkg.com/vue"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
         <script src="js/common.js"></script>
         <script src="js/viewer.js"></script>
+    </head>
+    <body>
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+        <router-view></router-view>
     </body>
 </html>
