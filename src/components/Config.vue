@@ -1,17 +1,18 @@
 <template>
-  <div id="app">
+  <div id="config">
+    This is the config.vue!
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'Config'
 }
 </script>
 
 <style>
-#app {
+#config {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,3 +21,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+

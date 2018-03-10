@@ -1,17 +1,18 @@
 <template>
-  <div id="app">
+  <div id="viewer">
+    This is the viewer.vue!
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'Viewer'
 }
 </script>
 
 <style>
-#app {
+#viewer {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
