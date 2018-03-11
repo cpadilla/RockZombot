@@ -4,6 +4,8 @@
             <v-layout row :key="i">
                 <v-flex xs12>
                     <Pastebin />
+                    <SongRequest />
+                    <!-- <SongRequest /> -->
                     <!-- <v-card class="px-0">
                         <v-card-text class="px0">
                             This will contain menu items
@@ -17,16 +19,18 @@
 
 <script>
 import Pastebin from './Pastebin'
+import SongRequest from './SongRequest.vue'
 
 export default {
-  name: 'Menu',
-  components: {
-      Pastebin
-  },
-  data() {
-    return {
+    name: 'Menu',
+    components: {
+        Pastebin,
+        SongRequest
+    },
+    data() {
+        return {
+        }
     }
-  }
 }
 </script>
 
