@@ -1,7 +1,7 @@
 <template>
     <div id="menu">
         <v-container color="primary" fluid grid-list-md>
-            <v-layout row :key="i">
+            <v-layout row >
                 <v-flex xs12>
                     <!-- <router-link :to="pastebin"> -->
                         <v-layout row
