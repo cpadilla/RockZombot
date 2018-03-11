@@ -1,18 +1,21 @@
 const request = require('request-promise')
 
 module.exports = {
-  getSong: function getSong(song){
+  playSong: function getSong(song){
+    if(song.indexOf(' ') >= 0){
+      song.replace(" ", "%20")
+    }
     var options = {
-      url: `https://api.spotify.com/v1/search?q=${song}&type=track&market=us&limit=5`,
+      url: `https://api.spotify.com/v1/search?q=${song}&type=track&market=us&limit=1`,
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       }
     }
     return promise = new Promise(function (resolve, reject){
-      //request.setHeaders('Authorization', `Bearer ${token}`)
       request(options).then(function(data){
-        resolve(data);
+        var trackInfo = JSON.parse(data);
+        resolve(trackInfo.tracks.items[0].external_urls.spotify);
       }).catch(function(error){
         reject(error);
       });
