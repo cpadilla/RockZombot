@@ -13,6 +13,7 @@
                             <v-text-field
                                 label="Paste Here"
                                 color="success"
+                                v-model="paste"
                             >
                             </v-text-field>
                             <v-select
@@ -21,7 +22,7 @@
                                 label="Syntax Highlighting"
                                 color="success"
                             ></v-select>
-                            <v-btn @click="page = 2">
+                            <v-btn @click="getPastebin(paste, selectedFormat)">
                                 Get Pastebin
                             </v-btn>
                         </v-flex>
@@ -36,7 +37,7 @@
                         </v-flex>
                         <v-flex xs10>
                             <v-card-text class="px0">
-                                https://pastebin.com
+                                {{ link }}
                             </v-card-text>
                         </v-flex>
                     </v-layout>
@@ -47,31 +48,55 @@
 </template>
 
 <script>
-import axios from 'axios'
+import PastebinAPI from 'pastebin-js'
+var pastebin = new PastebinAPI('c2782b965a1788ff8fd954b3f30d8b52')
 
-function getPastebin(pasteString, format) {
-
-}
+// console.log('pastebin: ', pastebin)
 
 export default {
   name: 'Pastebin',
   data() {
     return {
+        paste: "",
+        link: "",
+        selectedFormat: "",
+        page: 1,
+        pastebin: pastebin,
         formats: [
-            { text: "none" },
+            { text: "text" },
             { text: "c" },
             { text: "csharp" },
             { text: "cpp" },
             { text: "css" },
-            { text: "html" },
+            { text: "html5" },
             { text: "java" },
             { text: "javascript" },
             { text: "json" },
             { text: "lua" }
         ],
-        selectedFormat: "",
-        page: 1
     }
+  },
+  methods: {
+        getPastebin: function(pasteString, format) {
+            console.log("paste: ", pasteString, " format: ", format)
+            var syntaxHighlighting = "text";
+            if (format) {
+                syntaxHighlighting = format.text
+            }
+
+            var thisRef = this;
+
+            this.pastebin.createPaste(pasteString, "", syntaxHighlighting, 0)
+            .then(function(data) {
+                console.log("data ", data)
+                thisRef.link = data + ""
+            })
+            .fail(function(err) {
+                console.log(err)
+                thisRef.link = err + ""
+            })
+            this.page = 2;
+        }
   }
 }
 </script>
@@ -84,5 +109,11 @@ $btnSize: 60%;
         width: $btnSize;
         height: $btnSize;
     }
+
+    .input-group--text-field input {
+        background: red;
+        white-space: pre-wrap !important;
+    }
+
 }
 </style>
