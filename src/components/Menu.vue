@@ -1,13 +1,14 @@
 <template>
     <div id="menu">
-        <v-container fluid grid-list-md>
-            <v-layout row>
-                <v-flex md12>
-                    <v-spacer>
-                        <v-card v-for="i in 4" :key="i">
+        <v-container color="primary" fluid grid-list-md>
+            <v-layout row :key="i">
+                <v-flex xs12>
+                    <Pastebin />
+                    <!-- <v-card class="px-0">
+                        <v-card-text class="px0">
                             This will contain menu items
-                        </v-card>
-                    </v-spacer>
+                        </v-card-text>
+                    </v-card> -->
                 </v-flex>
             </v-layout>
         </v-container>
@@ -15,8 +16,13 @@
 </template>
 
 <script>
+import Pastebin from './Pastebin'
+
 export default {
   name: 'Menu',
+  components: {
+      Pastebin
+  },
   data() {
     return {
     }
@@ -25,4 +31,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#menu {
+    .container {
+        background: rgb(66,66,66);
+        border-radius: 2px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+        rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+        rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+    }
+}
 </style>
