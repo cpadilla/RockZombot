@@ -8,7 +8,7 @@
               <Menu v-show="expanded"/>
               <v-layout class="endRow" row justify-end>
                 <v-flex xs6 align-items-end>
-                  <v-btn v-on:click="expanded = !expanded" color="success" >{{ buttonText }}</v-btn>
+                  <v-btn v-on:click="expanded = !expanded" color="green" >{{ buttonText }}</v-btn>
                 </v-flex>
               </v-layout>
             </v-flex>

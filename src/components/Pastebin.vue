@@ -2,36 +2,24 @@
     <div id="pastebin">
         <!-- <v-card class="px-0"> -->
             <v-layout>
-                <v-flex xs12 v-show="page === 0" @click="page = 1">
-                    <v-layout row>
-                        <v-flex xs2 align-content-center>
-                            <v-avatar tile>
-                                <img src="../assets/pastebin-icon.png"/>
-                            </v-avatar>
-                        </v-flex>
-                        <v-flex xs10>
-                            <v-card-text class="px0">
-                                Create a Pastebin link
-                            </v-card-text>
-                        </v-flex>
-                    </v-layout>
-                </v-flex>
                 <v-flex xs12 v-show="page === 1">
                     <v-layout row>
-                        <v-flex xs2 align-content-center @click="page = 0">
-                            <v-avatar tile>
+                        <v-flex xs2 align-content-center>
+                            <v-avatar tile @click="$router.go(-1)">
                                 <img src="../assets/back.png"/>
                             </v-avatar>
                         </v-flex>
                         <v-flex xs10>
                             <v-text-field
                                 label="Paste Here"
+                                color="success"
                             >
                             </v-text-field>
                             <v-select
                                 :items="formats"
                                 v-model="selectedFormat"
                                 label="Syntax Highlighting"
+                                color="success"
                             ></v-select>
                             <v-btn @click="page = 2">
                                 Get Pastebin
@@ -82,16 +70,19 @@ export default {
             { text: "lua" }
         ],
         selectedFormat: "",
-        page: 0
+        page: 1
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+$btnSize: 60%;
+
 #pastebin {
     img {
-        width: 100%;
+        width: $btnSize;
+        height: $btnSize;
     }
 }
 </style>

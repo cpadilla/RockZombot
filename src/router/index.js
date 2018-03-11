@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Viewer from '@/components/Viewer'
 import Config from '@/components/Config'
+import PasteBin from '@/components/Pastebin'
+import SongRequest from '@/components/SongRequest'
 
 Vue.use(Router)
 
@@ -17,7 +19,19 @@ export default new Router({
     {
       path: '/viewer.html',
       name: 'Viewer',
-      component: Viewer
+      component: Viewer,
+      children: [
+        {
+          path: 'pastebin',
+          name: 'pastebin',
+          component: PasteBin
+        },
+        {
+          path: 'songrequest',
+          name: 'songrequest',
+          component: SongRequest
+        }
+      ]
     },
     {
       path: '/config.html',

@@ -3,14 +3,41 @@
         <v-container color="primary" fluid grid-list-md>
             <v-layout row :key="i">
                 <v-flex xs12>
-                    <Pastebin />
-                    <SongRequest />
-                    <!-- <SongRequest /> -->
-                    <!-- <v-card class="px-0">
-                        <v-card-text class="px0">
-                            This will contain menu items
-                        </v-card-text>
-                    </v-card> -->
+                    <!-- <router-link :to="pastebin"> -->
+                        <v-layout row
+                            v-on:click="navigate('pastebin')"
+                            v-if="$route.name === 'Viewer'"
+                        >
+                            <v-flex xs2 align-content-center>
+                                <v-avatar tile>
+                                    <img src="../assets/pastebin-icon.png"/>
+                                </v-avatar>
+                            </v-flex>
+                            <v-flex xs10>
+                                <v-card-text class="px0">
+                                    Create a Pastebin link
+                                </v-card-text>
+                            </v-flex>
+                        </v-layout>
+                        <v-layout
+                            v-on:click="navigate('songrequest')"
+                            v-if="$route.name === 'Viewer'"
+                        >
+                            <v-flex xs2 align-content-center>
+                                <v-avatar tile>
+                                    <img src="../assets/spotify.png"/>
+                                </v-avatar>
+                            </v-flex>
+                            <v-flex xs10>
+                                <v-card-text class="px0">
+                                    Request a Song
+                                </v-card-text>
+                            </v-flex>
+                        </v-layout>
+                    <!-- </router-link> -->
+                    <!-- <Pastebin />
+                    <SongRequest /> -->
+                    <router-view></router-view>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -29,8 +56,20 @@ export default {
     },
     data() {
         return {
+            clicked: false
+        }
+    },
+    methods: {
+        navigate: function (path) {
+            this.clicked = true
+            this.$router.push({ name: path })
+        },
+        inMainMethod: function() {
+            // alert(this.$router.path)
+            return true
         }
     }
+
 }
 </script>
 
