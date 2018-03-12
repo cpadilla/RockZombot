@@ -1,7 +1,6 @@
 const request = require('request-promise')
 
-
-var token = "BQBJmkVerYyIQcy6wPeI71V__KBppX4sZ9BQUJZkA1E0OG_Zazx3bZuS6-kHGSbwgmz1tL9ooIeOpIRnrIT6lWJZlTTEMuC1YmUdgNgra09C_bqAxY9KT4WIXQt2lGKmaxQUCLKgY2AchvKkxXLDjAPH6IV68NVTxxtYQ2D6D6v_FedS_2oIz4S8JAvp-KYZPlgCgddjNabNaeAg8nf0QxbqwTeL5bPv_OdkTftXSrPIECVjyBNGYwS7SZ6kiCmEI4z1IyQ";
+var token = ""  //Place your spotify token here
 module.exports = {
   playSong: function getSong(song){
     if(song.indexOf(' ') > 0){
