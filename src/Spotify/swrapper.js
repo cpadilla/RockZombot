@@ -1,6 +1,6 @@
 const request = require('request-promise')
 
-module.exports = {
+export default {
   playSong: function getSong(song){
     if(song.indexOf(' ') >= 0){
       song.replace(" ", "%20")
