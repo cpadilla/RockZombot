@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$variable: 100px;
+$videoPlayerHeight: 90px;
 
 #viewer {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -46,7 +46,7 @@ $variable: 100px;
   color: #2c3e50;
 
   .endRow {
-    padding-bottom: 40px;
+    padding-bottom: $videoPlayerHeight;
   }
 }
 </style>
