@@ -57,7 +57,6 @@ export default {
         link: "",
         selectedFormat: "",
         page: 1,
-        pastebin: pastebin,
         formats: [
             { text: "text" },
             { text: "c" },
@@ -88,7 +87,8 @@ export default {
 
             try {
                 const response = await axios.post(url, {
-                    pasteString
+                    pasteString,
+                    syntaxHighlighting
                 });
                 this.link = response.data.link;
             } catch (error) {
