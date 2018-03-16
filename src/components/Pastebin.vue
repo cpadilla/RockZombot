@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import PastebinAPI from 'pastebin-js'
 var pastebin = new PastebinAPI('c2782b965a1788ff8fd954b3f30d8b52')
 
@@ -74,23 +75,28 @@ export default {
     }
   },
   methods: {
-        getPastebin: function(pasteString, format) {
+        getPastebin: async function(pasteString, format) {
             var syntaxHighlighting = "text";
             if (format) {
                 syntaxHighlighting = format.text
             }
 
+            this.link = pasteString;
             var thisRef = this;
 
-            this.pastebin.createPaste(pasteString, "", syntaxHighlighting, 0)
-            .then(function(data) {
-                console.log("data ", data)
-                thisRef.link = data + ""
-            })
-            .fail(function(err) {
-                console.log(err)
-                thisRef.link = err + ""
-            })
+            const API = this.$config.API;
+            var url = API + "/pastebin";
+            console.log('API URL: ', url)
+
+            try {
+                const response = await axios.post(url, {
+                    pasteString
+                });
+                this.link = response.data.link;
+            } catch (error) {
+                console.log(error)
+            }
+
             this.page = 2;
         }
   }
