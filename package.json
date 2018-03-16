@@ -7,12 +7,14 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "ngrok": "ngrok http --host-header=rewrite 8080"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "request-promise": "^4.2.2",
     "vue": "^2.5.2",
+    "vue-config": "^1.0.0",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.6"
   },
@@ -37,7 +39,6 @@
     "node-sass": "^4.7.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
-    "pastebin-js": "^0.5.1",
     "portfinder": "^1.0.13",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
