@@ -37,7 +37,7 @@
                     </v-flex>
                     <v-flex xs10>
                         <v-card-text class="px0">
-                            <a :href="link">{{ link }}</a>
+                            <a :href="link" target="_blank">{{ link }}</a>
                         </v-card-text>
                     </v-flex>
                 </v-layout>
