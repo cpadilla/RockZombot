@@ -48,8 +48,6 @@
 
 <script>
 import axios from 'axios'
-import PastebinAPI from 'pastebin-js'
-var pastebin = new PastebinAPI('c2782b965a1788ff8fd954b3f30d8b52')
 
 export default {
   name: 'Pastebin',
